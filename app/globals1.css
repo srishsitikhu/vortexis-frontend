@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+
+@theme {
+    /* Primary colors */
+    --color-primary-light: #c4c6cc;
+    --color-primary: #2d3142;
+    --color-primary-hover: #1d212b;
+    --color-primary-dark: #1e3a8a;
+
+    /* Secondary colors */
+    --color-secondary-light: #e3f2fd;
+    --color-secondary: #64b5f6;
+    --color-secondary-hover: #1976d2;
+    --color-secondary-dark: #0d47a1;
+
+    /* Neutral colors */
+    --color-neutral-lightest: #f9fafb;
+    --color-neutral-light: #f3f4f6;
+    --color-neutral: #9ca3af;
+    --color-neutral-dark: #4b5563;
+    /* use this for normal texts */
+    --color-neutral-darker: #1f2937;
+    /* use this for main headings */
+
+    /* Danger (error) */
+    --color-danger: #ef4444;
+    --color-danger-dark: #dc2626;
+
+    /* Warning */
+    --color-warning: #f59e0b;
+    --color-warning-dark: #d97706;
+
+    /* Success */
+    --color-success: #10b981;
+    --color-success-dark: #059669;
+
+    --text-3xl: 28px;
+}
+
+@layer base {
+    body {
+        @apply bg-neutral-lightest text-neutral-dark text-sm;
+    }
+
+    hr {
+        @apply border-neutral;
+    }
+}
+
+@layer components {
+    .heading-text {
+        @apply text-neutral-darker text-3xl font-bold;
+    }
+
+    .heading-admin {
+        @apply text-3xl font-bold text-secondary;
+    }
+
+    .sub-heading-text {
+        @apply text-neutral-darker text-2xl font-semibold;
+    }
+
+    .label-input-group {
+        @apply flex flex-col gap-2;
+    }
+
+    .label-text {
+        @apply group-focus-within:text-primary text-neutral-darker transition-colors duration-300;
+    }
+
+    .input-field {
+        @apply border-neutral focus:border-primary rounded-md border p-2 transition-all duration-300 outline-none;
+    }
+
+    .large-text {
+        @apply text-neutral-darker text-lg font-semibold;
+    }
+
+    .sm-text {
+        @apply text-neutral-dark text-sm;
+    }
+
+    .error-text {
+        @apply text-danger;
+    }
+
+    .h-screen-minus-header {
+        height: calc(100vh - 80px);
+    }
+
+    .section {
+        @apply bg-neutral-lightest shadow-neutral rounded-md p-8 shadow-md;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    .fade-in {
+        animation: fadeIn 0.4s ease-in forwards;
+    }
+
+    .fade-out {
+        animation: fadeOut 0.4s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(-10%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0%);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0%);
+            opacity: 1;
+        }
+
+        to {
+            transform: translateX(75%);
+            opacity: 0;
+        }
+    }
+
+    .slide-in {
+        animation: slideIn 0.3s ease-in-out backwards;
+    }
+
+    .slide-out {
+        animation: slideOut 0.3s ease-in-out backwards;
+    }
+
+    .btn-primary {
+        @apply p-4 bg-secondary text-neutral-100 shadow-xl hover:scale-105 transition-all duration-300 ease-in-out
+    }
+
+    .btn-outline {
+        @apply p-4 bg-neutral-100 text-secondary shadow-xl hover:scale-105 transition-all duration-300 ease-in-out
+    }
+
+    .time-heading {
+        @apply font-normal text-sm laptop:text-xl;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
+    }
+}
